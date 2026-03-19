@@ -700,9 +700,9 @@ function buildBaselineComparison(config: SimulationConfig) {
 
 function buildAlphaKappaHeatmaps(config: SimulationConfig): HeatmapResult[] {
   const metrics = [
-    { key: "xStar", label: "x*" },
-    { key: "meanJ", label: "J" },
-    { key: "stabilityTime", label: "T_s" },
+    { key: "xStar", label: "稳态共享意愿" },
+    { key: "meanJ", label: "公平性" },
+    { key: "stabilityTime", label: "稳定时间" },
   ] as const;
 
   return metrics.map((metric) => {
@@ -770,7 +770,7 @@ function buildPfPdHeatmap(config: SimulationConfig): HeatmapResult {
   );
 
   return {
-    metric: "x*",
+    metric: "稳态共享意愿",
     xLabel: "p_f",
     yLabel: "p_d",
     xValues: PF_PD_VALUES,

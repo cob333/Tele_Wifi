@@ -117,7 +117,7 @@ export function TopologyView({
             <div className="detail-summary">
               <h4>当前时刻总览</h4>
               <div className="detail-row">
-                <span>共享率</span>
+                <span>共享意愿</span>
                 <strong>{formatPercent(point.x)}</strong>
               </div>
               <div className="detail-row">

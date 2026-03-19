@@ -27,7 +27,7 @@ const numericFields: Array<{
 }> = [
   { key: "N", label: "用户数 N", min: 9, max: 144, step: 1 },
   { key: "M", label: "AP 数 M", min: 1, max: 18, step: 1 },
-  { key: "x0", label: "初始共享率 x0", min: 0, max: 1, step: 0.01 },
+  { key: "x0", label: "初始共享意愿 x0", min: 0, max: 1, step: 0.01 },
   { key: "theta", label: "阈值 theta", min: 0.4, max: 0.9, step: 0.01 },
   { key: "alpha", label: "奖励强度 alpha", min: 0, max: 1, step: 0.01 },
   { key: "kappa", label: "惩罚强度 kappa", min: 0, max: 1, step: 0.01 },
@@ -55,7 +55,6 @@ export function ControlPanel({
   return (
     <SectionCard
       title="参数控制"
-      subtitle="当前默认值是演示参数，不代表论文中的实测物理量。"
       actions={
         <div className="inline-actions">
           <button className="ghost-button" onClick={onExportConfig} type="button">

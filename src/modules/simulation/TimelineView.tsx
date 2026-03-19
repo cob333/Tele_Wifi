@@ -56,7 +56,7 @@ export function TimelineView({
     },
     series: [
       {
-        name: "x(t)",
+        name: "共享意愿 x(t)",
         type: "line",
         smooth: true,
         data: timeline.map((point) => point.x),
@@ -64,7 +64,7 @@ export function TimelineView({
         symbol: "none",
       },
       {
-        name: "Th(t)",
+        name: "吞吐效率 Th(t)",
         type: "line",
         smooth: true,
         data: timeline.map((point) => point.th),
@@ -72,7 +72,7 @@ export function TimelineView({
         symbol: "none",
       },
       {
-        name: "J(t)",
+        name: "公平性 J(t)",
         type: "line",
         smooth: true,
         data: timeline.map((point) => point.j),
@@ -80,7 +80,7 @@ export function TimelineView({
         symbol: "none",
       },
       {
-        name: "mean(r_t)",
+        name: "整体信誉 mean(r_t)",
         type: "line",
         smooth: true,
         data: timeline.map((point) => point.meanR),

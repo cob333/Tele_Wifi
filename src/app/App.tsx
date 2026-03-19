@@ -1,6 +1,5 @@
 import { startTransition, useEffect, useRef, useState } from "react";
 import SimulationWorker from "../workers/simulation.worker?worker";
-import { MechanismOverview } from "../modules/mechanism/MechanismOverview";
 import { ControlPanel } from "../modules/controls/ControlPanel";
 import { MetricCards } from "../modules/simulation/MetricCards";
 import { TimelineView } from "../modules/simulation/TimelineView";
@@ -162,11 +161,7 @@ export default function App() {
       <header className="hero-panel">
         <div>
           <p className="eyebrow">Campus WiFi Reputation Demo</p>
-          <h1>交互式校园 WiFi 信誉奖惩仿真看板</h1>
-          <p className="hero-copy">
-            这个骨架把机制说明、动态演化、基线对比、参数扫描和导出模块串成一个可运行的前端 Demo，
-            后续可以继续替换为你的正式模型公式和实验数据。
-          </p>
+          <h1>校园 WiFi 信誉奖惩仿真系统</h1>
         </div>
         <div className="hero-meta">
           <span className="badge">engine: {config.engine}</span>
@@ -177,7 +172,6 @@ export default function App() {
 
       <div className="app-grid">
         <aside className="left-column">
-          <MechanismOverview />
           <ControlPanel
             config={config}
             isRunning={isRunning}

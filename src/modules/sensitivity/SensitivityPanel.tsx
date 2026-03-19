@@ -22,7 +22,9 @@ function toHeatmapOption(result: HeatmapResult) {
     },
     xAxis: {
       type: "category",
-      name: result.xLabel,
+      name: result.xLabel || "横坐标",
+      nameLocation: "middle",
+      nameGap: 28,
       data: result.xValues.map((value) => value.toFixed(2)),
       axisLabel: {
         color: "#9eb2b2",
@@ -30,7 +32,9 @@ function toHeatmapOption(result: HeatmapResult) {
     },
     yAxis: {
       type: "category",
-      name: result.yLabel,
+      name: result.yLabel || "纵坐标",
+      nameLocation: "middle",
+      nameGap: 40,
       data: result.yValues.map((value) => value.toFixed(2)),
       axisLabel: {
         color: "#9eb2b2",
@@ -79,7 +83,6 @@ export function SensitivityPanel({
     <div className="stack-grid">
       <SectionCard
         title="alpha-kappa 敏感性"
-        subtitle="围绕 x*、J 和 T_s 展示奖励强度与惩罚强度的耦合影响。"
       >
         <div className="heatmap-grid">
           {alphaKappa.map((heatmap) => (
@@ -92,29 +95,27 @@ export function SensitivityPanel({
       </SectionCard>
 
       <SectionCard
-        title="p_f - p_d 鲁棒性"
-        subtitle="高误检率和低检测率是机制退化边界，单独拿出来做 robustness view。"
+        title="鲁棒性——-检测机制退化边界"
       >
         <ReactECharts option={toHeatmapOption(pfPd)} style={{ height: 320 }} />
       </SectionCard>
 
       <SectionCard
         title="Replicator vs Moran"
-        subtitle="保留确定性和随机演化两类结果，避免将它们混为一个结论。"
       >
         <div className="comparison-grid">
           <article className="mini-panel">
             <h3>Replicator</h3>
-            <p>x*: {formatWithCI(moranComparison.replicator.xStar.mean, moranComparison.replicator.xStar.ci95)}</p>
-            <p>Th: {formatWithCI(moranComparison.replicator.meanTh.mean, moranComparison.replicator.meanTh.ci95)}</p>
-            <p>J: {formatWithCI(moranComparison.replicator.meanJ.mean, moranComparison.replicator.meanJ.ci95)}</p>
+            <p>稳态共享意愿: {formatWithCI(moranComparison.replicator.xStar.mean, moranComparison.replicator.xStar.ci95)}</p>
+            <p>吞吐效率: {formatWithCI(moranComparison.replicator.meanTh.mean, moranComparison.replicator.meanTh.ci95)}</p>
+            <p>公平性: {formatWithCI(moranComparison.replicator.meanJ.mean, moranComparison.replicator.meanJ.ci95)}</p>
           </article>
           <article className="mini-panel">
             <h3>Moran</h3>
-            <p>x*: {formatWithCI(moranComparison.moran.xStar.mean, moranComparison.moran.xStar.ci95)}</p>
+            <p>稳态共享意愿: {formatWithCI(moranComparison.moran.xStar.mean, moranComparison.moran.xStar.ci95)}</p>
             <p>rho_S: {moranComparison.moran.rhoS ? formatWithCI(moranComparison.moran.rhoS.mean, moranComparison.moran.rhoS.ci95) : "--"}</p>
             <p>
-              Absorption:
+              吸收时间:
               {" "}
               {moranComparison.moran.meanAbsorptionTime
                 ? formatWithCI(

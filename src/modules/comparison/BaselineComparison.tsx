@@ -45,19 +45,19 @@ export function BaselineComparison({ rows }: BaselineComparisonProps) {
     },
     series: [
       {
-        name: "x*",
+        name: "稳态共享意愿",
         type: "bar",
         data: rows.map((row) => row.xStar.mean),
         itemStyle: { color: "#f26b3a" },
       },
       {
-        name: "Th",
+        name: "吞吐效率",
         type: "bar",
         data: rows.map((row) => row.meanTh.mean),
         itemStyle: { color: "#f0c05d" },
       },
       {
-        name: "J",
+        name: "公平性",
         type: "bar",
         data: rows.map((row) => row.meanJ.mean),
         itemStyle: { color: "#6bc6d6" },
@@ -77,13 +77,13 @@ export function BaselineComparison({ rows }: BaselineComparisonProps) {
           <thead>
             <tr>
               <th>方案</th>
-              <th>x*</th>
-              <th>Th</th>
-              <th>J</th>
-              <th>T_s</th>
-              <th>P10</th>
-              <th>P50</th>
-              <th>P90</th>
+              <th>稳态共享意愿</th>
+              <th>吞吐效率</th>
+              <th>公平性</th>
+              <th>稳定时间</th>
+              <th>第10百分位收益</th>
+              <th>中位收益</th>
+              <th>第90百分位收益</th>
             </tr>
           </thead>
           <tbody>
